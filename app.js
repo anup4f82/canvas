@@ -46,7 +46,7 @@ app.get('/canvas/callback/',function(req,res){
 
 app.post('/canvas/callback',function(req,res){
 
-    console.log(res);
+    res.redirect('http://google.com');
 })
 
 // catch 404 and forward to error handler
