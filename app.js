@@ -28,13 +28,16 @@ app.use('/users', users);
 
 app.get('/sf',function(req,res){
 
- res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
+    res.sendFile('index.html', { root: path.join(__dirname, '../canvas_example') });
+ // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 })
 
 
 app.get('/canvas/callback',function(req,res){
 
- res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
+    res.sendFile('index.html', { root: path.join(__dirname, '../canvas_example') });
+
+ // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 })
 
 // catch 404 and forward to error handler
