@@ -35,7 +35,7 @@ app.get('/sf',function(req,res){
 })
 
 
-app.get('/canvas/callback',function(req,res){
+app.get('/canvas/callback/',function(req,res){
 
    res.sendfile(html_dir + 'index.html');
 
