@@ -6,8 +6,8 @@
  <script type="text/javascript" src="https://thingtech.ap1.visual.force.com/canvas/sdk/js/32.0/canvas-all.js"></script>
  <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
   <script>
-// var sr = document.getElementById('sf-canvas-signed-request').content;
- Sfdc.canvas.client.repost({refresh : true});
+var sr = document.getElementById('sf-canvas-signed-request').content;
+ // Sfdc.canvas.client.repost({refresh : true});
 
 
 //   Sfdc.canvas.client.refreshSignedRequest(function(data) {
@@ -36,11 +36,11 @@ Sfdc.canvas.client.repost({refresh : true});
 //             var obj = JSON.parse(Sfdc.canvas.decode(part));
 //         }
 //     }
-// var conn = new jsforce.Connection({ signedRequest: sr });
-// conn.query('SELECT Id, Name FROM Account', function(err, res) {
-//   if (err) { return console.error(err); }
-//   console.log(res);
-// });
+var conn = new jsforce.Connection({ signedRequest: sr });
+conn.query('SELECT Id, Name FROM Account', function(err, res) {
+  if (err) { return console.error(err); }
+  console.log(res);
+});
   </script>
 </head>
 
