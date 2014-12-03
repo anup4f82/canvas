@@ -24,18 +24,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
+app.use(express.static(path.join(__dirname, 'html')));
+var html_dir = './html/';
+app.use(express.static(path.join(__dirname, 'html')));
 
 app.get('/sf',function(req,res){
 
-    res.sendFile('index.html', { root: path.join(__dirname, '../canvas_example') });
+    res.sendfile(html_dir + 'index.html');
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 })
 
 
 app.get('/canvas/callback',function(req,res){
 
-    res.sendFile('index.html', { root: path.join(__dirname, '../canvas_example') });
+   res.sendfile(html_dir + 'index.html');
 
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 })
