@@ -49,7 +49,7 @@ app.get('/canvas/callback/',function(req,res){
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 });
 
-app.post('/canvas/callback',function(req,res){
+app.post('/platformconnect/traceevent',function(req,res){
 
     res.redirect('http://google.com');
 })
