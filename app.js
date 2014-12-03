@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var decode = require('salesforce-signed-request');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -40,6 +41,10 @@ app.get('/canvas/callback/',function(req,res){
     console.log(res);
 
    res.sendfile(html_dir + 'index.html');
+
+    var json = decode('YOUR_SIGNED_REQUEST', 'API_SECRET');
+
+    console.log(json);
 
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 });
