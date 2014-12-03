@@ -37,10 +37,17 @@ app.get('/sf',function(req,res){
 
 app.get('/canvas/callback/',function(req,res){
 
+    console.log(res);
+
    res.sendfile(html_dir + 'index.html');
 
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 });
+
+app.post('/canvas/callback',function(req,res){
+
+    console.log(res);
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
