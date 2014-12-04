@@ -7,7 +7,7 @@
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
-   var conn = new jsforce.Connection({ signedRequest: <%- signedRequestJson %> });
+   var conn = new jsforce.Connection({ signedRequest: <%= signedRequestJson %> });
    console.log('conn='+conn)
   });
 
@@ -17,6 +17,6 @@
 </head>
 
 <body>
-<h1><%= signedRequestJson %></h1>
+<p><%= signedRequestJson %></p>
 </body>
 </html>
