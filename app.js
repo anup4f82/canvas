@@ -37,7 +37,9 @@ app.get('/sf',function(req,res){
 
 app.get('/canvas/callback/',function(req,res){
 
-   res.render('index');
+   console.log('Signed Request =' +req.body.signed_request);
+   res.render('index',{sr:req.body.signed_request});
+
 
    // res.sendfile(html_dir + 'index.');
 
