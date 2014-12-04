@@ -25,10 +25,11 @@ console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
 
 var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
 var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
-// var decryptapikey = window.atob(APIkey);
+
 // var decryptapisecret = window.atob(APISecret);
-console.log('EncryptedAPIkey' + APIkey);
-// console.log('decryptapikey' +decryptapikey);
+console.log('EncryptedAPIkey' + APIkey.toString());
+var decryptapikey = window.atob(APIkey.toString());
+console.log('decryptapikey' +decryptapikey);
 console.log('EncryptedAPIsecret' + APISecret);
 // console.log('DecryptedAPISecret' + decryptapisecret);
 
