@@ -18,13 +18,9 @@
   console.log(res);
 });
 
-// console.log('METHODS'+Object.getOwnPropertyNames(conn));
-var obj = JSON.stringify(conn.signedRequest.context);
-console.log('OBJECT---------------' +obj);
-// console.log('Object Methodss========' +Object.getOwnPropertyNames(obj));
 
 console.log('USER'+ conn.signedRequest.context["user"].userId);
-console.log('TEST'+Object.getOwnPropertyNames(conn.signedRequest.context));
+console.log('PARAMS'+ conn.signedRequest.context["environment"].parameters);
 // var p = obj["parameters"]
 
 // console.log('JSON'+JSON.stringify(conn.signedRequest.context));
