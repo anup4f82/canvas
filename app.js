@@ -34,24 +34,24 @@ app.use(cookieParser());
 //  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 // });
 
-app.get('/',function(req,res){
+// app.get('/',function(req,res){
 
-   console.log('Signed Request =' +req.body.signed_request);
-   res.json("Hello world");
-});
+//    console.log('Signed Request =' +req.body.signed_request);
+//    res.json("Hello world");
+// });
 
-app.get('/canvas/callback/',function(req,res){
+// app.get('/canvas/callback/',function(req,res){
    
-   console.log(req.body);
-   console.log('Signed Request =' +req.body.signed_request);
-   res.render('index',{sr:req.body.signed_request});
-});
+//    console.log(req.body);
+//    console.log('Signed Request =' +req.body.signed_request);
+//    res.render('index',{sr:req.body.signed_request});
+// });
 
 
 app.post('/canvas/callback/',function(req,res){
    
-   console.log(req.body);
-   console.log('Signed Request =' +req.body.signed_request);
+   // console.log(req.body);
+   // console.log('Signed Request =' +req.body.signed_request);
    res.render('index',{signedRequestJson:req.body.signed_request});
 });
 
