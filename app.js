@@ -60,7 +60,7 @@ app.post('/canvas/callback/',function(req,res){
 
 });
 
-app.get('/decrypt',function(req,res){
+app.post('/decrypt',function(req,res){
    
   console.log("REQUEST" +req);
   res.render('new');
