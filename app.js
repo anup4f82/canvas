@@ -49,10 +49,12 @@ app.get('/canvas/callback/',function(req,res){
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 });
 
-app.post('/canvas/callback',function(req,res){
-console.log('dsdsdds');
+app.post('https://thingtech.ap1.visual.force.com/services/data/v32.0/platformconnect/traceevent',function(req,res){
+alert("POSTING");
 
 })
+
+app.put('/')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
