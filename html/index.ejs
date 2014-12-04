@@ -18,9 +18,15 @@
   console.log(res);
 });
 
-console.log('METHODS'+Object.getOwnPropertyNames(conn));
+// console.log('METHODS'+Object.getOwnPropertyNames(conn));
+var obj = JSON.stringify(conn.signedRequest.context);
+var user = obj["user"];
+var p = obj["parameters"]
+console.log('USER' +user);
+console.log('Parameters' +parameter);
 console.log('JSON'+JSON.stringify(conn.signedRequest.context));
-console.log('SignedRequest-USER'+conn.signedRequest.context["user"].firstname);
+console.log('user'+conn.signedRequest.context["user"]);
+// console.log('SignedRequest-USER'+conn.signedRequest.context["user"].firstname);
 
  
   </script>
