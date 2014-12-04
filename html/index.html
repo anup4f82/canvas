@@ -32,8 +32,9 @@ var sr = document.getElementById('sf-canvas-signed-request').content;
 
 function myFunction() {
 
-	
-   Sfdc.canvas.client.refreshSignedRequest();
+
+   var sr = Sfdc.canvas.client.refreshSignedRequest();
+   alert('Signed Request' +sr)
 	// console.log('EEEWEWE');
 // Sfdc.canvas.client.repost({refresh : true});
 
