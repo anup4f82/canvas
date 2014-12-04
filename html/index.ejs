@@ -4,9 +4,13 @@
   <script src="https://login.salesforce.com/canvas/sdk/js/31.0/canvas-all.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.3.1/jsforce.min.js"></script>
  <script type="text/javascript" src="https://thingtech.ap1.visual.force.com/canvas/sdk/js/32.0/canvas-all.js"></script>
- <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script
   <script>
 
+$(document).ready(function() {
+    var sr = <%- signedRequestJson %>;
+    console.log(sr);
+});
  // Sfdc.canvas.client.repost({refresh : true});
 
 
@@ -30,8 +34,7 @@
   //   });
 
 
-function myFunction() {
-	alert("In function");
+
 // Sfdc.canvas.client.refreshSignedRequest();
 
 	  // Sfdc.canvas.client.refreshSignedRequest(function(data) {
@@ -60,7 +63,7 @@ function myFunction() {
 // Sfdc.canvas.client.repost({refresh : true});
 
  // console.log(sr);
-}
+
 
 
 // Sfdc.canvas.client.refreshSignedRequest(function(data) {
