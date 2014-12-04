@@ -9,6 +9,7 @@ var ejs = require('ejs');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
+var SHA256 = require("crypto-js/sha256");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'html'));
@@ -56,6 +57,7 @@ app.get('/',function(req,res){
 app.post('/canvas/callback/',function(req,res){
    
    res.render('index',{signedRequestJson:req.body.signed_request});
+   
 });
 
 
