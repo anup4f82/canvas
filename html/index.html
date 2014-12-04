@@ -12,7 +12,7 @@ var sr = document.getElementById('sf-canvas-signed-request').content;
 
   Sfdc.canvas.client.refreshSignedRequest(function(data) {
 
-  	alert('Inside function');
+  	alert('the status is '+data.status);
         if (data.status === 200) {
         	alert('Helllo');
             var signedRequest =  data.payload.response;
