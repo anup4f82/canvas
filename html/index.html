@@ -11,13 +11,18 @@ var sr = document.getElementById('sf-canvas-signed-request').content;
 
 
   Sfdc.canvas.client.refreshSignedRequest(function(data) {
+
+  	alert('Inside function');
         if (data.status === 200) {
             var signedRequest =  data.payload.response;
             console.log(signedRequest);
+            document.getElementById('signed').textContent = signedRequest;
             var part = signedRequest.split('.')[1];
              console.log(part);
+                   document.getElementById('part').textContent = part;
             var obj = JSON.parse(Sfdc.canvas.decode(part));
             console.log(obj);
+             document.getElementById('obj').textContent = obj;
         }
     });
 
@@ -48,5 +53,8 @@ Sfdc.canvas.client.repost({refresh : true});
 
 <body>
 <button onclick="myFunction()">Click me</button>
+<div id="signed"></div>
+<div id="part"></div>
+<div id="obj"></div>
 </body>
 </html>
