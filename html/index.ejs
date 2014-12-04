@@ -13,8 +13,12 @@
   console.log(sr);
    var conn = new jsforce.Connection({ signedRequest: sr });
    console.log('conn='+conn)
+    conn.query('SELECT Id, Name FROM Account', function(err, res) {
+  if (err) { return console.error(err); }
+  console.log(res);
+});
 
-
+console.log('METHODS'+Object.getOwnPropertyNames(conn));
  
   </script>
 </head>
