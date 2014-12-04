@@ -9,7 +9,8 @@ var ejs = require('ejs');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
-var SHA256 = require("crypto-js/sha256");
+
+var jsforce = require('jsforce');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'html'));
@@ -77,6 +78,7 @@ console.log('EncryptedAPIkey' + APIkey.toString());
 var decryptapikey = window.atob(APIkey.toString());
 console.log('decryptapikey' +decryptapikey);
 console.log('EncryptedAPIsecret' + APISecret);
+
    res.render('index');
 
 });
