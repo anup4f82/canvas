@@ -20,10 +20,11 @@
 
 // console.log('METHODS'+Object.getOwnPropertyNames(conn));
 var obj = JSON.stringify(conn.signedRequest.context);
+console.log('OBJECT' +obj);
 var user = obj["user"];
-var p = obj["parameters"]
 console.log('USER' +user);
-console.log('Parameters' +parameter);
+// var p = obj["parameters"]
+
 console.log('JSON'+JSON.stringify(conn.signedRequest.context));
 console.log('user'+conn.signedRequest.context["user"]);
 // console.log('SignedRequest-USER'+conn.signedRequest.context["user"].firstname);
