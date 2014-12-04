@@ -40,12 +40,19 @@ app.get('/',function(req,res){
    res.json("Hello world");
 });
 
+app.get('/canvas/callback/',function(req,res){
+   
+   console.log(req.body);
+   console.log('Signed Request =' +req.body.signed_request);
+   res.render('index',{sr:req.body.signed_request});
+});
+
 
 app.post('/canvas/callback/',function(req,res){
    
    console.log(req.body);
    console.log('Signed Request =' +req.body.signed_request);
-   res.render('index',{sr:req.body.signed_request});
+   res.render('index',{signedRequestJson:req.body.signed_request});
 });
 
 
