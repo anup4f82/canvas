@@ -6,6 +6,46 @@
  <script type="text/javascript" src="https://thingtech.ap1.visual.force.com/canvas/sdk/js/32.0/canvas-all.js"></script>
  <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
   <script>
+
+
+
+
+
+
+// function signRequest() {
+        
+
+              
+
+//                 // makes sure you use the "-" instead of "=" because otherwise the JSON
+//                 // is escaped
+//                 var sr = <%- signedRequestJson %>;
+//                 console.log(sr);
+//                 // Save the token
+//                 Sfdc.canvas.oauth.token(sr.oauthToken);
+
+//                 // Reference the Chatter user's URL from Context.Links object.
+//                 var url = sr.context.links.chatterFeedsUrl + "/news/" + sr.context.user.userId + "/feed-items";
+//                 var body = {body: {messageSegments: [
+//                     {type: "Text", text: chatterText }
+//                 ]}};
+
+//                 Sfdc.canvas.client.ajax(url,
+//                         {client: sr.client,
+//                             method: 'POST',
+//                             contentType: "application/json",
+//                             data: JSON.stringify(body),
+//                             success: function (data) {
+//                                 if (201 === data.status) {
+//                                     console.log("Success");
+//                                 }
+//                             }
+//                         });
+
+//                 return false;
+  
+// }
+ 
 var sr = document.getElementById('sf-canvas-signed-request').content;
  // Sfdc.canvas.client.repost({refresh : true});
 
@@ -37,7 +77,6 @@ function myFunction() {
 
   	alert('the status is '+data.status);
         if (data.status === 200) {
-        	alert('Helllo');
             var signedRequest =  data.payload.response;
             console.log(signedRequest);
             document.getElementById('signed').textContent = signedRequest;
@@ -51,7 +90,7 @@ function myFunction() {
     });
 
 
-
+}
 
    // var sr = Sfdc.canvas.client.refreshSignedRequest();
    // alert('Signed Request' +sr);
@@ -59,7 +98,7 @@ function myFunction() {
 // Sfdc.canvas.client.repost({refresh : true});
 
  // console.log(sr);
-}
+
 
 
 // Sfdc.canvas.client.refreshSignedRequest(function(data) {
@@ -70,15 +109,15 @@ function myFunction() {
 //         }
 //     }
 var conn = new jsforce.Connection({ signedRequest: sr });
-// conn.query('SELECT Id, Name FROM Account', function(err, res) {
-//   if (err) { return console.error(err); }
-//   console.log(res);
-// });
+conn.query('SELECT Id, Name FROM Account', function(err, res) {
+  if (err) { return console.error(err); }
+  console.log(res);
+});
   </script>
 </head>
 
 <body>
-<button onclick="myFunction()">Click me</button>
+<button onclick="signRequest()">Click me</button>
 <div id="signed"></div>
 <div id="part"></div>
 <div id="obj"></div>
