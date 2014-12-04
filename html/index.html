@@ -46,7 +46,7 @@
   
 // }
  
-var sr = document.getElementById('sf-canvas-signed-request').content;
+// var sr = document.getElementById('sf-canvas-signed-request').content;
  // Sfdc.canvas.client.repost({refresh : true});
 
 
@@ -108,11 +108,11 @@ function signRequest() {
 //             var obj = JSON.parse(Sfdc.canvas.decode(part));
 //         }
 //     }
-var conn = new jsforce.Connection({ signedRequest: sr });
-conn.query('SELECT Id, Name FROM Account', function(err, res) {
-  if (err) { return console.error(err); }
-  console.log(res);
-});
+// var conn = new jsforce.Connection({ signedRequest: sr });
+// conn.query('SELECT Id, Name FROM Account', function(err, res) {
+//   if (err) { return console.error(err); }
+//   console.log(res);
+// });
   </script>
 </head>
 
