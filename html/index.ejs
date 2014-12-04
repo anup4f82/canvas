@@ -20,7 +20,7 @@
 
 console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
 console.log('USER'+ conn.signedRequest.context["user"].userId);
-console.log('PARAMS'+ conn.signedRequest.context["environment"].parameters);
+console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
 // var p = obj["parameters"]
 
 // console.log('JSON'+JSON.stringify(conn.signedRequest.context));
