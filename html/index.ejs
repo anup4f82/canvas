@@ -9,28 +9,38 @@
 
 
 
-//   var sr = '<%- signedRequestJson %>';
-//   console.log(sr);
-//    var conn = new jsforce.Connection({ signedRequest: sr });
-// //    console.log('conn='+conn)
-// //     conn.query('SELECT Id, Name FROM Account', function(err, res) {
-// //   if (err) { return console.error(err); }
-// //   console.log(res);
-// // });
+  var sr = '<%- signedRequestJson %>';
+  console.log(sr);
+   var conn = new jsforce.Connection({ signedRequest: sr });
+//    console.log('conn='+conn)
+//     conn.query('SELECT Id, Name FROM Account', function(err, res) {
+//   if (err) { return console.error(err); }
+//   console.log(res);
+// });
 
-// console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
-// console.log('USER'+ conn.signedRequest.context["user"].userId);
-// console.log('LOCATION'+ conn.signedRequest.context["environment"].displayLocation);
-// console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
+console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
+console.log('USER'+ conn.signedRequest.context["user"].userId);
+console.log('LOCATION'+ conn.signedRequest.context["environment"].displayLocation);
+console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
 
-// var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
-// var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
+var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
+var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
 
-// // var decryptapisecret = window.atob(APISecret);
-// console.log('EncryptedAPIkey' + APIkey.toString());
-// var decryptapikey = window.atob(APIkey.toString());
-// console.log('decryptapikey' +decryptapikey);
-// console.log('EncryptedAPIsecret' + APISecret);
+// var decryptapisecret = window.atob(APISecret);
+console.log('EncryptedAPIkey' + APIkey.toString());
+var decryptapikey = window.atob(APIkey.toString());
+console.log('decryptapikey' +decryptapikey);
+console.log('EncryptedAPIsecret' + APISecret);
+
+
+$.ajax({
+  url: "/decrypt",
+  data: {apikey:decryptapikey}
+  type: 'POST'
+
+}).done(function() {
+  console.log("Success");
+});
 
 // console.log('DecryptedAPISecret' + decryptapisecret);
 
@@ -52,7 +62,6 @@
 <body>
 <!-- <p><%= signedRequestJson %></p> -->
 <div id="apikey"></div>
-<h1>HEllo</h1>
 <div id="apisecret"></div>
 </body>
 </html>
