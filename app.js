@@ -36,7 +36,7 @@ app.get('/sf',function(req,res){
 });
 
 
-app.get('/canvas/callback/',function(req,res){
+app.post('/canvas/callback/',function(req,res){
 
    res.render('index');
 
