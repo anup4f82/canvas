@@ -35,6 +35,19 @@ app.get('/sf',function(req,res){
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 });
 
+app.get('/canvas/callback/',function(req,res){
+
+   res.render('index');
+
+   // res.sendfile(html_dir + 'index.');
+
+   //  var json = decode('YOUR_SIGNED_REQUEST', 'API_SECRET');
+
+   //  console.log(json);
+
+ // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
+});
+
 
 app.post('/canvas/callback/',function(req,res){
 
