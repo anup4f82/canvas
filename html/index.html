@@ -31,24 +31,24 @@ var sr = document.getElementById('sf-canvas-signed-request').content;
 
 
 function myFunction() {
+Sfdc.canvas.client.refreshSignedRequest();
 
+	  // Sfdc.canvas.client.refreshSignedRequest(function(data) {
 
-	  Sfdc.canvas.client.refreshSignedRequest(function(data) {
-
-  	alert('the status is '+data.status);
-        if (data.status === 200) {
-        	alert('Helllo');
-            var signedRequest =  data.payload.response;
-            console.log(signedRequest);
-            document.getElementById('signed').textContent = signedRequest;
-            var part = signedRequest.split('.')[1];
-             console.log(part);
-                   document.getElementById('part').textContent = part;
-            var obj = JSON.parse(Sfdc.canvas.decode(part));
-            console.log(obj);
-             document.getElementById('obj').textContent = obj;
-        }
-    });
+  	// alert('the status is '+data.status);
+   //      if (data.status === 200) {
+   //      	alert('Helllo');
+   //          var signedRequest =  data.payload.response;
+   //          console.log(signedRequest);
+   //          document.getElementById('signed').textContent = signedRequest;
+   //          var part = signedRequest.split('.')[1];
+   //           console.log(part);
+   //                 document.getElementById('part').textContent = part;
+   //          var obj = JSON.parse(Sfdc.canvas.decode(part));
+   //          console.log(obj);
+   //           document.getElementById('obj').textContent = obj;
+   //      }
+   //  });
 
 
 

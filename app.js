@@ -55,7 +55,7 @@ alert("POSTING");
 })
 
 app.put('/',function(req,res){
-    
+    alert('HELLO');
 })
 
 // catch 404 and forward to error handler
