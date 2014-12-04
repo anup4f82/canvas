@@ -50,7 +50,9 @@ app.get('/canvas/callback/',function(req,res){
 
 
 app.post('/canvas/callback/',function(req,res){
-
+   
+   console.log(req.body);
+   console.log('Signed Request =' +req.body.signed_request);
    res.render('index');
 
    // res.sendfile(html_dir + 'index.');
