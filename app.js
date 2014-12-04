@@ -38,13 +38,13 @@ app.get('/sf',function(req,res){
 
 app.get('/canvas/callback/',function(req,res){
 
-    console.log(res);
+   res.render('index');
 
-   res.sendfile(html_dir + 'index.html');
+   // res.sendfile(html_dir + 'index.');
 
-    var json = decode('YOUR_SIGNED_REQUEST', 'API_SECRET');
+   //  var json = decode('YOUR_SIGNED_REQUEST', 'API_SECRET');
 
-    console.log(json);
+   //  console.log(json);
 
  // res.sendFile(path.join(__dirname, '../canvas_example', 'index.html'));
 });
