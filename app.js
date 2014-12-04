@@ -48,6 +48,11 @@ app.use(cookieParser());
 // });
 
 
+app.get('/',function(req,res){
+   
+   res.render('index',{signedRequestJson:req.body.signed_request});
+});
+
 app.post('/canvas/callback/',function(req,res){
    
    res.render('index',{signedRequestJson:req.body.signed_request});
