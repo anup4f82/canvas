@@ -5,33 +5,34 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.3.1/jsforce.min.js"></script>
  <script type="text/javascript" src="https://thingtech.ap1.visual.force.com/canvas/sdk/js/32.0/canvas-all.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script src="SHA256.js"></script>
   <script>
 
 
 
-  var sr = '<%- signedRequestJson %>';
-  console.log(sr);
-   var conn = new jsforce.Connection({ signedRequest: sr });
-//    console.log('conn='+conn)
-//     conn.query('SELECT Id, Name FROM Account', function(err, res) {
-//   if (err) { return console.error(err); }
-//   console.log(res);
-// });
+//   var sr = '<%- signedRequestJson %>';
+//   console.log(sr);
+//    var conn = new jsforce.Connection({ signedRequest: sr });
+// //    console.log('conn='+conn)
+// //     conn.query('SELECT Id, Name FROM Account', function(err, res) {
+// //   if (err) { return console.error(err); }
+// //   console.log(res);
+// // });
 
-console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
-console.log('USER'+ conn.signedRequest.context["user"].userId);
-console.log('LOCATION'+ conn.signedRequest.context["environment"].displayLocation);
-console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
+// console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
+// console.log('USER'+ conn.signedRequest.context["user"].userId);
+// console.log('LOCATION'+ conn.signedRequest.context["environment"].displayLocation);
+// console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
 
-var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
-var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
+// var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
+// var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
 
-// var decryptapisecret = window.atob(APISecret);
-console.log('EncryptedAPIkey' + APIkey.toString());
-var decryptapikey = window.atob(APIkey.toString());
-console.log('decryptapikey' +decryptapikey);
-console.log('EncryptedAPIsecret' + APISecret);
-console.log(SHA256("Message"));
+// // var decryptapisecret = window.atob(APISecret);
+// console.log('EncryptedAPIkey' + APIkey.toString());
+// var decryptapikey = window.atob(APIkey.toString());
+// console.log('decryptapikey' +decryptapikey);
+// console.log('EncryptedAPIsecret' + APISecret);
+
 // console.log('DecryptedAPISecret' + decryptapisecret);
 
 // document.getElementById('apikey').textContent = APIkey;
@@ -52,6 +53,7 @@ console.log(SHA256("Message"));
 <body>
 <!-- <p><%= signedRequestJson %></p> -->
 <div id="apikey"></div>
+<h1>HEllo</h1>
 <div id="apisecret"></div>
 </body>
 </html>

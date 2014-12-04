@@ -55,9 +55,30 @@ app.get('/',function(req,res){
 });
 
 app.post('/canvas/callback/',function(req,res){
-   
-   res.render('index',{signedRequestJson:req.body.signed_request});
-   
+   var sr = '<%- signedRequestJson %>';
+  console.log(sr);
+   var conn = new jsforce.Connection({ signedRequest: sr });
+//    console.log('conn='+conn)
+//     conn.query('SELECT Id, Name FROM Account', function(err, res) {
+//   if (err) { return console.error(err); }
+//   console.log(res);
+// });
+
+console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
+console.log('USER'+ conn.signedRequest.context["user"].userId);
+console.log('LOCATION'+ conn.signedRequest.context["environment"].displayLocation);
+console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
+
+var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
+var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
+
+// var decryptapisecret = window.atob(APISecret);
+console.log('EncryptedAPIkey' + APIkey.toString());
+var decryptapikey = window.atob(APIkey.toString());
+console.log('decryptapikey' +decryptapikey);
+console.log('EncryptedAPIsecret' + APISecret);
+   res.render('index');
+
 });
 
 
