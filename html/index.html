@@ -14,6 +14,7 @@ var sr = document.getElementById('sf-canvas-signed-request').content;
 
   	alert('Inside function');
         if (data.status === 200) {
+        	alert('Helllo');
             var signedRequest =  data.payload.response;
             console.log(signedRequest);
             document.getElementById('signed').textContent = signedRequest;
@@ -26,7 +27,7 @@ var sr = document.getElementById('sf-canvas-signed-request').content;
         }
     });
 
-  Sfdc.canvas.client.refreshSignedRequest();
+   Sfdc.canvas.client.refreshSignedRequest();
 
 function myFunction() {
 	// console.log('EEEWEWE');
@@ -53,8 +54,8 @@ Sfdc.canvas.client.repost({refresh : true});
 
 <body>
 <button onclick="myFunction()">Click me</button>
-<div id="signed"></div>
-<div id="part"></div>
-<div id="obj"></div>
+<div id="signed">Hello</div>
+<div id="part">Hiiii</div>
+<div id="obj">Object</div>
 </body>
 </html>
