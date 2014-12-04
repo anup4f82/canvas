@@ -8,7 +8,7 @@
   <script>
   $(document).ready(function(){
   	debugger;
-  var sr = <%- signedRequestJson %>;
+  var sr = '<%- signedRequestJson %>';
   console.log(sr);
    var conn = new jsforce.Connection({ signedRequest: sr });
    console.log('conn='+conn)
