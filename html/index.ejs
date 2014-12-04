@@ -22,6 +22,8 @@ console.log('METHODS'+Object.getOwnPropertyNames(conn));
 console.log('SignedRequest-USER'+conn.signedRequest.context.user);
 console.log('SignedRequest-Parameters'+conn.signedRequest.context.environment.parameters);
 console.log('SignedRequestMethods'+ Object.getOwnPropertyNames(conn.signedRequest));
+console.log('SignedRequestMethodsUSER'+ Object.getOwnPropertyNames(conn.signedRequest.user));
+console.log('SignedRequestMethodsenv'+ Object.getOwnPropertyNames(conn.signedRequest.environment));
  
   </script>
 </head>
