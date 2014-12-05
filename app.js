@@ -65,7 +65,7 @@ app.post('/canvas/callback/',function(req,res){
 });
 
 app.post('/decrypt',function(req,res){
-   console.log(SHA256(req.body.apikey));
+
    console.log('body: ' + JSON.stringify(req.body.apikey));
    var decrypted = cryptojs.AES.decrypt(req.body.apikey, "mGfcZiv54O/72cZ2A0dFl3mkL0NVhGtPUnMyFau3kZk=");
     res.send(decrypted);
