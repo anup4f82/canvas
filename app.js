@@ -55,15 +55,17 @@ app.get('/',function(req,res){
 });
 
 app.post('/canvas/callback/',function(req,res){
-
+   
+   console.log("IN POSTTTT");
    res.render('index',{signedRequestJson:req.body.signed_request});
 
 });
 
 app.post('/decrypt',function(req,res){
-   
-  console.log("REQUEST" +req);
-  res.render('new');
+   console.log(SHA256("Message"));
+   console.log('body: ' + JSON.stringify(req.body));
+    res.send(req.body);
+
 });
 
 

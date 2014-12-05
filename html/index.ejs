@@ -38,8 +38,9 @@ $.ajax({
   data: {apikey:decryptapikey},
   type: 'POST'
 
-}).done(function() {
+}).done(function(data) {
   console.log("Success");
+  console.log(JSON.stringify(data));
 });
 
 // console.log('DecryptedAPISecret' + decryptapisecret);
