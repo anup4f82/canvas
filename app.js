@@ -9,7 +9,10 @@ var ejs = require('ejs');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
-var SHA256 = require("crypto-js/sha256");
+var cryptojs = require("crypto-js");
+var crypto = require('crypto');
+algorithm = 'aes-256-ctr',
+password = 'd6F3Efeq';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'html'));
@@ -64,7 +67,8 @@ app.post('/canvas/callback/',function(req,res){
 app.post('/decrypt',function(req,res){
    console.log(SHA256(req.body.apikey));
    console.log('body: ' + JSON.stringify(req.body.apikey));
-    res.send(SHA256(req.body.apikey));
+   var decrypted = cryptojs.AES.decrypt(req.body.apikey, "mGfcZiv54O/72cZ2A0dFl3mkL0NVhGtPUnMyFau3kZk=");
+    res.send(decrypted);
 
 });
 
