@@ -30,7 +30,8 @@ console.log('DecryptedAPIKEY= ' +decryptedapikey.toString(CryptoJS.enc.Utf8));
 var decryptedapisecret = CryptoJS.AES.decrypt(encryptedapisecret, "abcxyz");
 console.log('DecryptedAPISecret= ' +decryptedapisecret.toString(CryptoJS.enc.Utf8));
 
-
+document.getElementById('apikey').textContent = decryptedapikey;
+document.getElementById('apisecret').textContent = decryptedapisecret;
 
 // $.ajax({
 //   url: "/decrypt",
