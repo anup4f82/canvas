@@ -59,7 +59,6 @@ app.get('/',function(req,res){
 
 app.post('/canvas/callback/',function(req,res){
    
-   console.log("IN POSTTTT");
    res.render('index',{signedRequestJson:req.body.signed_request});
 
 });
@@ -67,6 +66,7 @@ app.post('/canvas/callback/',function(req,res){
 app.post('/decrypt',function(req,res){
 
    console.log('body: ' + JSON.stringify(req.body.apikey));
+   
    var decrypted = cryptojs.AES.decrypt(req.body.apikey, "mGfcZiv54O/72cZ2A0dFl3mkL0NVhGtPUnMyFau3kZk=");
     res.send(decrypted);
 

@@ -23,25 +23,24 @@ console.log('USER'+ conn.signedRequest.context["user"].userId);
 console.log('LOCATION'+ conn.signedRequest.context["environment"].displayLocation);
 console.log('PARAMS'+ conn.signedRequest.context["environment"]["parameters"]);
 
-var APIkey = conn.signedRequest.context["environment"]["parameters"].API_Key;
-var APISecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
-
-// var decryptapisecret = window.atob(APISecret);
-console.log('EncryptedAPIkey' + APIkey.toString());
-var decryptapikey = window.atob(APIkey.toString());
-console.log('decryptapikey' +decryptapikey);
-console.log('EncryptedAPIsecret' + APISecret);
+var encryptedapikey = conn.signedRequest.context["environment"]["parameters"].API_Key;
+var encryptedapisecret = conn.signedRequest.context["environment"]["parameters"].API_secret;
+var decryptedapikey = CryptoJS.AES.decrypt(encryptedapikey, "abcxyz");
+console.log('DecryptedAPIKEY' +decryptedapikey.toString(CryptoJS.enc.Utf8));
+var decryptedapisecret = CryptoJS.AES.decrypt(encryptedapisecret, "abcxyz");
+console.log('DecryptedAPISecret' +decryptedapisecret.toString(CryptoJS.enc.Utf8));
 
 
-$.ajax({
-  url: "/decrypt",
-  data: {apikey:decryptapikey},
-  type: 'POST'
 
-}).done(function(data) {
-  console.log("Success");
-  console.log(JSON.stringify(data));
-});
+// $.ajax({
+//   url: "/decrypt",
+//   data: {apikey:decryptapikey},
+//   type: 'POST'
+
+// }).done(function(data) {
+//   console.log("Success");
+//   console.log(JSON.stringify(data));
+// });
 
 // console.log('DecryptedAPISecret' + decryptapisecret);
 
