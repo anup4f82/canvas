@@ -13,7 +13,7 @@ var cryptojs = require("crypto-js");
 var crypto = require('crypto');
 algorithm = 'aes-256-ctr',
 password = 'd6F3Efeq';
-app.use(allowCrossDomain);
+// app.use(allowCrossDomain);
 // view engine setup
 app.set('views', path.join(__dirname, 'html'));
 app.set('view engine', 'ejs');
