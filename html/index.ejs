@@ -17,12 +17,12 @@
      console.log('Access token' +conn.accessToken);
    console.log('conn='+conn);
    var conn1 = new jsforce.Connection({
- instanceUrl : conn.signedRequest.client.instanceUrl,
- accessToken : conn.accessToken
+     instanceUrl : conn.signedRequest.client.instanceUrl,
+     accessToken : conn.accessToken
 });
-    conn1.query('SELECT Id, Name FROM Account', function(err, res) {
-  if (err) { return console.error(err); }
-  console.log('Response=' +res);
+    conn.query('SELECT Id, Name FROM Account', function(err, res) {
+      if (err) { return console.error(err); }
+      console.log('Response=' +res);
 });
 
 console.log('METHODS' +Object.getOwnPropertyNames(conn));
