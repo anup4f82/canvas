@@ -13,14 +13,14 @@
   var sr = '<%- signedRequestJson %>';
   console.log(sr);
    var conn = new jsforce.Connection({ signedRequest: sr });
-    console.log('Instance URL' +conn.instanceUrl);
-     console.log('Access toeken' +conn.accessToken);
+    console.log('Instance URL' +conn.signedRequest.client.instanceUrl);
+     console.log('Access token' +conn.accessToken);
    console.log('conn='+conn);
-   conn = new jsforce.Connection({
+   var conn1 = new jsforce.Connection({
  instanceUrl : conn.instanceUrl,
  accessToken : conn.accessToken
 });
-    conn.query('SELECT Id, Name FROM Account', function(err, res) {
+    conn1.query('SELECT Id, Name FROM Account', function(err, res) {
   if (err) { return console.error(err); }
   console.log('Response=' +res);
 });
