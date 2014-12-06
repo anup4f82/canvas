@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <head>
- 
+
   <script src="https://login.salesforce.com/canvas/sdk/js/31.0/canvas-all.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.3.1/jsforce.min.js"></script>
- <script type="text/javascript" src="https://thingtech.ap1.visual.force.com/canvas/sdk/js/32.0/canvas-all.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+  <script type="text/javascript" src="https://thingtech.ap1.visual.force.com/canvas/sdk/js/32.0/canvas-all.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
   <script>
 
 
 
-  var sr = '<%- signedRequestJson %>';
-  console.log(sr);
-   var conn = new jsforce.Connection({ signedRequest: sr });
+    var sr = '<%- signedRequestJson %>';
+    console.log(sr);
+    var conn = new jsforce.Connection({ signedRequest: sr });
+    console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
     console.log('Instance URL' +conn.signedRequest.client.instanceUrl);
-     console.log('Access token' +conn.accessToken);
-   console.log('conn='+conn);
-   var conn1 = new jsforce.Connection({
+    console.log('Links' +conn.signedRequest.context.links);
+    var newsr = JSON.parse('<%=signedRequestJson%>');
+    console.log('sr.context.links' +sr.context.links)
+    console.log('Access token' +conn.accessToken);
+    console.log('conn='+conn);
+    var conn1 = new jsforce.Connection({
      instanceUrl : conn.signedRequest.client.instanceUrl,
      accessToken : conn.accessToken
-});
+   });
     conn.query('SELECT Id, Name FROM Account', function(err, res) {
       if (err) { return console.error(err); }
       console.log('Response=' +res);
-});
+    });
 
-console.log('METHODS' +Object.getOwnPropertyNames(conn));
+    console.log('METHODS' +Object.getOwnPropertyNames(conn));
 // console.log('CLIENT' +JSON.stringify(conn.signedRequest.client));
 console.log('CONTEXT' +JSON.stringify(conn.signedRequest.context));
 console.log('USER'+ conn.signedRequest.context["user"].userId);
@@ -64,13 +68,13 @@ document.getElementById('apisecret').textContent = decryptedapisecret;
 // console.log('user'+conn.signedRequest.context["user"]);
 // console.log('SignedRequest-USER'+conn.signedRequest.context["user"].firstname);
 
- 
-  </script>
+
+</script>
 </head>
 
 <body>
-<!-- <p><%= signedRequestJson %></p> -->
-<div id="apikey"></div>
-<div id="apisecret"></div>
+  <!-- <p><%= signedRequestJson %></p> -->
+  <div id="apikey"></div>
+  <div id="apisecret"></div>
 </body>
 </html>
