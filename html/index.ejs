@@ -17,7 +17,7 @@
      console.log('Access token' +conn.accessToken);
    console.log('conn='+conn);
    var conn1 = new jsforce.Connection({
- instanceUrl : conn.instanceUrl,
+ instanceUrl : conn.signedRequest.client.instanceUrl,
  accessToken : conn.accessToken
 });
     conn1.query('SELECT Id, Name FROM Account', function(err, res) {
